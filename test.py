@@ -2,12 +2,12 @@ import geopandas as gpd
 import requests
 import pandas as pd
 from shapely.geometry import shape
-from sodapy import Socrata
+#from sodapy import Socrata
 import json
 import urllib
 
-http_proxy = "http://chancar:Statcan123@stcweb.statcan.ca:80"
-https_proxy = "https://chancar:Statcan123@stcweb.statcan.ca:80"
+http_proxy = "http://username:password@stcweb.statcan.ca:80"
+https_proxy = "https://username:password@stcweb.statcan.ca:80"
 
 proxyDict = {
     "http": http_proxy,
@@ -22,7 +22,8 @@ cal_root = "https://data.calgary.ca/resource/kami-qbfh.json"
 ott_root = "https://opendata.arcgis.com/datasets/cfb079e407494c33b038e86c7e05288e_24.geojson"
 tor_root = "https://ckan0.cf.opendata.inter.prod-toronto.ca/api/3/action/package_search?q=name:parks"
 
-r = requests.get(tor_root, proxies=proxyDict)
+# r = requests.get(tor_root, proxies=proxyDict)
+r = requests.get(tor_root)
 r.raise_for_status()
 response = r.json()
 
